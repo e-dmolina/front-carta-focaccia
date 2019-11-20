@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
-import { async } from 'q';
 
 @Component({
   selector: 'app-inicio',
@@ -25,7 +24,7 @@ export class InicioComponent implements OnInit {
 
 
   getProductos(){
-     this._productosService.getPoductos()
+     this._productosService.getProductos()
                          .subscribe((data:any[]) => {
                           //  console.log(data)
                             this.productos = data;
