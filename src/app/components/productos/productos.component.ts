@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
-import { productoModel } from 'src/app/models/producto.model';
 import Swal from 'sweetalert2';
-import { delay } from 'q';
 
 @Component({
   selector: 'app-productos',
@@ -13,11 +11,14 @@ export class ProductosComponent implements OnInit {
 
   productos: any[] = [];
   cargando = false;
+  categorias: any[] = [];
+  categoria:string;
 
   constructor(private _productosService:ProductosService) { }
 
   ngOnInit() {
     this.cargando = true;
+    this.getCategorias();
     this.obtenerProductos();
   }
 
@@ -33,7 +34,6 @@ export class ProductosComponent implements OnInit {
       if (resp.value) {
         this._productosService.eliminarProducto(prod._id)
         .subscribe( resp => {
-          console.log(resp)
           this.obtenerProductos()
         });
       }
@@ -48,5 +48,29 @@ export class ProductosComponent implements OnInit {
     }, (err) => {
       console.log(err)
     });
+  }
+
+  filtrarCategoria(){
+
+    if (this.categoria == 'todos' || this.categoria == null) {
+      this.obtenerProductos();
+    } else {
+      this._productosService.getProdXCategoria(this.categoria)
+        .subscribe((data:any) => {
+          this.productos = data;
+        }, (err) => {
+          console.log(err)
+        });
+    }
+  }
+
+  getCategorias() {
+    //obtengo las categorías de la api
+    this._productosService.getCategorias()
+      .subscribe((data: any[]) => {
+        this.categorias = data;
+      }, (err) => {
+        console.log(err)
+      });
   }
 }

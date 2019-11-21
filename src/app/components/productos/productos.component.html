@@ -4,7 +4,20 @@
     <hr>
 
     <div class="row">
-        <div class="col text-right">
+        <div class="col">
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Categoría</label>
+                <select class="form-control" id="exampleFormControlSelect1" required name="categoria"
+                    [(ngModel)]="categoria">
+                    <option value="todos">Todos</option>
+                    <option *ngFor="let item of categorias" [value]="item.nombre">{{item.nombre}}</option>
+                </select>
+            </div>
+            <button (click)="filtrarCategoria()" class="btn btn-primary">
+                Filtrar
+            </button>
+        </div>
+        <div class="col text-right d-flex align-items-end justify-content-end">
             <button class="btn btn-primary" routerLink="/producto/nuevo">
                 <i class="fa fa-plus"></i>
                 Agregar

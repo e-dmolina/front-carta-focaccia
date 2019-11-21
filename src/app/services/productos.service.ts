@@ -21,6 +21,10 @@ export class ProductosService {
     return this.http.get(`${this.URL}/productos/${id}`)
   }
 
+  getProdXCategoria(categoria:string){
+    return this.http.get(`${this.URL}/productos/categoria/${categoria}`)
+  }
+
   crearProducto(producto: productoModel) {
     return this.http.post(`${this.URL}/productos`, producto)
       .pipe(
