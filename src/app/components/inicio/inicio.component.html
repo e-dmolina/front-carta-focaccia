@@ -34,7 +34,7 @@
 <div class="card-columns animated fadeIn">
     <div class="card" *ngFor="let cat of categorias">
         <a name="{{cat.nombre}}"></a>
-        <img src="{{cat.img}}" class="card-img-top" alt="{{cat.nombre}}">
+        <img [src]="cat.img" class="card-img-top" alt="{{cat.nombre}}">
         <div class="card-body">
             <h5 class="card-title"><b>{{cat.nombre}}</b></h5>
             <div class="row" *ngIf="cat.nombre == 'Pizzas' || cat.nombre == 'Empanadas'">
