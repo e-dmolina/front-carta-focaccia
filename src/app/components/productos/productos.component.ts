@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -14,7 +16,9 @@ export class ProductosComponent implements OnInit {
   categorias: any[] = [];
   categoria:string;
 
-  constructor(private _productosService:ProductosService) { }
+  constructor( private _productosService:ProductosService, 
+               private _auth:AuthService,
+               private router:Router ) { }
 
   ngOnInit() {
     this.cargando = true;
@@ -72,5 +76,10 @@ export class ProductosComponent implements OnInit {
       }, (err) => {
         console.log(err)
       });
+  }
+
+  cerrarSesion(){
+    this._auth.logout();
+    this.router.navigateByUrl('login');
   }
 }

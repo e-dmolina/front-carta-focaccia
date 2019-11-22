@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProductosService {
 
-  URL = 'http://localhost:3100/api';
+  URL = 'http://localhost:3000/api';
 
 
   constructor(private http: HttpClient) { }
