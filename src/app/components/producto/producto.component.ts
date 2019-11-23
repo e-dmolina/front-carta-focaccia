@@ -55,9 +55,8 @@ export class ProductoComponent implements OnInit {
     Swal.showLoading();
 
     let peticion: Observable<any>;
-    let error;
-    //si existe el id del producto actualizo, sino creo un producto nuevo
-    if (this.producto.id) {
+    //si el id(parametro de ruta) es diferente a nuevo actualizo, sino creo un producto nuevo
+    if (this.id !== 'nuevo') {
       peticion = this._productosService.actualizarProducto(this.producto)
     } else {
       peticion = this._productosService.crearProducto(this.producto)
