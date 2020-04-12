@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class ProductosService {
 
-  URL = 'https://pizzeriafocaccia.com:3000/api';
+  URL = 'https://pizzeriafocaccia.com/api';
   // URL = 'http://localhost:3000/api';
 
 
