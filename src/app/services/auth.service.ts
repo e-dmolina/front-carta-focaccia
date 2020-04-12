@@ -8,7 +8,9 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private url = 'http://54.233.240.52:3000/api/login';
+  private url = 'https://pizzeriafocaccia.com:3000/api/login';
+  // private url = 'http://localhost:3000/api/login';
+
   userToken:string;
 
   constructor( private http:HttpClient ) {

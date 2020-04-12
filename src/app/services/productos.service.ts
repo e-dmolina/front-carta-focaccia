@@ -8,7 +8,8 @@ import { map } from 'rxjs/operators';
 })
 export class ProductosService {
 
-  URL = 'http://54.233.240.52:3000/api';
+  URL = 'https://pizzeriafocaccia.com:3000/api';
+  // URL = 'http://localhost:3000/api';
 
 
   constructor(private http: HttpClient) { }
