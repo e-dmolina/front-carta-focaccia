@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private url = 'https://pizzeriafocaccia.com:3000/api/login';
+  private url = 'https://pizzeriafocaccia.com/api/login';
   // private url = 'http://localhost:3000/api/login';
 
   userToken:string;
